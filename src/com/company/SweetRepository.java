@@ -1,32 +1,21 @@
 package com.company;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class SweetRepository {
-    private List sweetList = new ArrayList();
+    //private List sweetList = new ArrayList();
+    private Set<Sweet> sweetList = new HashSet();
 
-    public List getSweetList() {
+    public Set getSweetList() {
         return sweetList;
     }
 
-    public void add(Laddu laddu) {
-        sweetList.add(laddu);
+    public void add(Sweet sweet) {
+        sweetList.add(sweet);
     }
 
-    public void add(RasGulla rasGulla) {
-        sweetList.add(rasGulla);
-    }
-
-    public void add(Jalebi jalebi) {
-        sweetList.add(jalebi);
-    }
-
-    public void add(Kalakhand kalakhand) {
-        sweetList.add(kalakhand);
-    }
-
-    public void add(GulabJamun gulabJamun) {
-        sweetList.add(gulabJamun);
+    public void delete(Sweet sweet) {
+        sweetList.remove(sweet);
     }
 }

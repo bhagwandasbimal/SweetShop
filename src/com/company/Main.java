@@ -1,5 +1,6 @@
 package com.company;
-import java.util.List;
+
+import java.util.Set;
 
 public class Main {
     public static void main(String[] args) {
@@ -26,16 +27,33 @@ public class Main {
         gulabJamun.id = "g005";
         gulabJamun.price = 25;
 
+        Laddu laddu1 = new Laddu();
+        laddu1.id = "l002";
+        laddu1.price = 5;
+
         SweetRepository sweetRepository = new SweetRepository();
         sweetRepository.add(laddu);
         sweetRepository.add(rasGulla);
         sweetRepository.add(jalebi);
         sweetRepository.add(kalakhand);
         sweetRepository.add(gulabJamun);
+        sweetRepository.add(laddu1);
 
-        UserInterface userInterface = new UserInterface();
+        UserInterface ui = new UserInterface();
 
-        List sweetList = sweetRepository.getSweetList();
-        userInterface.print(sweetList);
+        //List sweetList = sweetRepository.getSweetList();
+        Set sweetList = sweetRepository.getSweetList();
+        ui.print(sweetList);
+
+        sweetRepository.delete(laddu);
+        sweetRepository.delete(rasGulla);
+        sweetRepository.delete(jalebi);
+        sweetRepository.delete(kalakhand);
+        sweetRepository.delete(gulabJamun);
+
+        System.out.println("After deleting the remaining Sweet list : ");
+        ui.print(sweetList);
+
+
     }
 }
